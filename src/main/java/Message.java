@@ -11,6 +11,8 @@ public class Message {
 	public void setTexte(String texte) {
 		this.texte = texte;
 	}
+
+
 	
 	
 }

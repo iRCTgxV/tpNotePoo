@@ -23,10 +23,22 @@ public class Canal {
 		this.mapping_role_utilisateur = mapping_role_utilisateur;
 		this.mapping_role_habilitations = mapping_role_habilitations;
 	}
+	public Canal() {
+		// TODO Auto-generated constructor stub
+	}
 	void ecrireMessage(Utilisateur u, Message m) {
 		this.historiques.add(m);
 	}
 	public int compareTo(Canal c) {
 		return this.Ordre - c.Ordre;
+	}
+	public Object getMapping_role_utilisateurs() {
+		return this.getMapping_role_utilisateurs();
+	}
+	public Object getMapping_role_habilitations() {
+		return this.getMapping_role_habilitations();
+	}
+	public List<Message> getHistoriques() {
+		return this.historiques;
 	}
 }
