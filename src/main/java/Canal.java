@@ -32,10 +32,10 @@ public class Canal {
 	public int compareTo(Canal c) {
 		return this.Ordre - c.Ordre;
 	}
-	public Object getMapping_role_utilisateurs() {
+	public Map<Role, List<Utilisateur>> getMapping_role_utilisateurs() {
 		return this.getMapping_role_utilisateurs();
 	}
-	public Object getMapping_role_habilitations() {
+	public Map<Role, List<Habilitation>> getMapping_role_habilitations() {
 		return this.getMapping_role_habilitations();
 	}
 	public List<Message> getHistoriques() {

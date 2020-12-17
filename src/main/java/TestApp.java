@@ -3,12 +3,51 @@ import static org.junit.Assert.fail;
 import java.awt.List;
 import java.util.Arrays;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import junit.framework.Assert;
 
 public class TestApp {
+	private Canal c;
+	@BeforeClass
+	public void init() {
+		c = new Canal(1,"canal 1",null,null,null,null);
+	}
 
+	@Test
+    public void ecrireMessageKO() throws ActionNonAutoriseeException {
+
+        // Etape 1 : préparation des objets
+        Canal c = new Canal();
+
+        Message m = new Message();
+        m.setDestinataire((Destinataire) c);
+        m.setTexte("Bonne année 2021 !");
+
+        Utilisateur utilisateur = new Utilisateur();
+
+        c.ecrireMessage(utilisateur, m);
+
+		// Etape 3 test du retour
+		fail("L'exception aurait du être levée, on ne doit pas passer ici !");
+    }
+	
+	@Test
+	public void getHistoriqueOK() {
+		c.getHistoriques();
+	}
+	
+	@Test
+	public void getMapping_role_utilisateursOK() {
+		c.getMapping_role_utilisateurs();
+	}
+	
+	@Test
+	public void getMapping_role_habilitationsOK() {
+		c.getMapping_role_habilitations();
+	}
+	
 	@Test
     public void ecrireMessageOK() throws ActionNonAutoriseeException {
         // Etape 1 : préparation des objets
@@ -31,21 +70,6 @@ public class TestApp {
         System.out.println(historiques.get(0).getTexte());
     }
 
-	    @Test
-	    public void ecrireMessageKO() throws ActionNonAutoriseeException {
-
-	        // Etape 1 : préparation des objets
-	        Canal c = new Canal();
-
-	        Message m = new Message();
-	        m.setDestinataire((Destinataire) c);
-	        m.setTexte("Bonne année 2021 !");
-
-	        Utilisateur utilisateur = new Utilisateur();
-
-	        c.ecrireMessage(utilisateur, m);
-
-			// Etape 3 test du retour
-			fail("L'exception aurait du être levée, on ne doit pas passer ici !");
-	    }
+	    
+	    
 }
